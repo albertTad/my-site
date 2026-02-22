@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-slate-950 text-slate-100;
+}
+
+/* Optional background */
+.bg-grid {
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(34,211,238,0.18), transparent 35%),
+    radial-gradient(circle at 70% 30%, rgba(59,130,246,0.14), transparent 40%),
+    radial-gradient(circle at 40% 80%, rgba(168,85,247,0.10), transparent 40%),
+    linear-gradient(to bottom, rgba(2,6,23,0.6), rgba(2,6,23,1));
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-sm;
+  }
+
+  .card-hover {
+    @apply transition;
+  }
+
+  /* Buttons: DO NOT @apply a custom class inside another custom class in v4 */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition
+      bg-cyan-500/90 text-slate-950 hover:bg-cyan-400;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition
+      border border-white/15 bg-white/5 text-white hover:bg-white/10;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200;
+  }
+
+    .section {
+    @apply mx-auto max-w-6xl px-6 py-16;
+  }
+
+  .section-title {
+    @apply text-3xl font-extrabold tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply mt-3 text-slate-300;
+  }
+
+  .separator {
+    @apply mx-auto max-w-6xl px-6;
+  }
+
+  .separator-line {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent;
+  }
+
+  .separator-glow {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent blur-[1px];
+  }
 }
