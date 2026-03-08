@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const skills = [
   { title: "Frontend", desc: "React, TypeScript, Tailwind", icon: "⚡" },
@@ -10,6 +11,13 @@ const skills = [
 
 const projects = [
   {
+    title: "Filesystem MCP Server",
+    desc: "Secure MCP server for reading, listing, and searching files within sandboxed local directories.",
+    tag: "MCP • AI Engineering",
+    href: "/projects/filesystem-mcp-server",
+    thumb: "/projects/mcp_project.png",
+  },
+  {
     title: "Data Privacy Management & Compliance Dashboard",
     desc: "ML-Powered Full-stack system for detecting and encrypting PII in databases with RBAC and audit logging.",
     tag: "Cryptography • Machine Learning • Full-Stack",
@@ -19,16 +27,9 @@ const projects = [
   {
     title: "Deep Learning System for Spinal Fracture Detection (Kaggle Competition)",
     desc: "CNN-based medical imaging system detecting spinal fractures in MRI scans with explainability.",
-    tag: "ML • Computer Vision • Medical",
+    tag: "ML • Computer Vision • Data",
     href: "/projects/spinal-fracture-detection",
     thumb: "/projects/spinal_project.png",
-  },
-  {
-    title: "Filesystem MCP Server",
-    desc: "Secure MCP server for reading, listing, and searching files within sandboxed local directories.",
-    tag: "MCP • Security",
-    href: "/projects/filesystem-mcp-server",
-    thumb: "/projects/mcp_project.png",
   },
 ];
 
@@ -189,11 +190,11 @@ export default function Page() {
 
             <div className="mt-4 text-sm text-slate-300 space-y-2">
               <p>
-                Advanced study in distributed systems, machine learning,
-                optimization, and large-scale application architecture.
+                Advanced study in secure system design, deep learning,
+                software engineering, and large-scale application architecture.
               </p>
               <p className="text-slate-400">
-                Focus: AI systems • Scalable backend architecture • Research-driven engineering
+                Focus: AI systems • Cryptography • Research-driven engineering
               </p>
             </div>
           </div>
@@ -222,7 +223,6 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Master's Degree */}
           
         </div>
       </section>
@@ -279,16 +279,16 @@ export default function Page() {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a className="btn-secondary" href="mailto:alex@example.com">
+            {/* <a className="btn-secondary" href="mailto:alex@example.com">
               ✉️ Email Me
-            </a>
+            </a> */}
             <a
               className="btn-secondary"
               href="https://linkedin.com"
               target="_blank"
               rel="noreferrer"
             >
-              in LinkedIn
+              <FaLinkedin size={20} /> LinkedIn
             </a>
             <a
               className="btn-secondary"
@@ -296,7 +296,7 @@ export default function Page() {
               target="_blank"
               rel="noreferrer"
             >
-              ⌂ GitHub
+              <FaGithub size={20} /> GitHub
             </a>
           </div>
         </div>

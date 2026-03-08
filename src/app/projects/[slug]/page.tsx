@@ -129,7 +129,7 @@ function ProjectHeader() {
             AJ
           </div>
           <div className="leading-tight">
-            <div className="text-sm font-bold">Alex Johnson</div>
+            <div className="text-sm font-bold">Albert Tadros</div>
             <div className="text-xs text-slate-400">Full Stack & AI Engineer</div>
           </div>
         </Link>
