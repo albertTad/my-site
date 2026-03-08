@@ -1,33 +1,34 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const skills = [
-  { title: "Frontend", desc: "Next.js, React, TypeScript, Tailwind", icon: "⚡" },
-  { title: "Backend", desc: "Node, Python, APIs, SQL/NoSQL", icon: "🧠" },
-  { title: "AI & ML", desc: "RAG, agents, embeddings, evals", icon: "🤖" },
-  { title: "Cloud & DevOps", desc: "Docker, CI/CD, AWS, observability", icon: "☁️" },
+  { title: "Frontend", desc: "React, TypeScript, Tailwind", icon: "⚡" },
+  { title: "Backend", desc: "C#, Python, SQL, MongoDB ", icon: "🧠" },
+  { title: "AI & ML", desc: "AI Agents, MCP, RAG, Model Training", icon: "🤖" },
+  { title: "Cloud & DevOps", desc: "AWS, Docker, Kubernetes", icon: "☁️" },
 ];
 
 const projects = [
   {
-    title: "AI-Powered Chatbot",
-    desc: "Support assistant with RAG + guardrails + analytics.",
-    tag: "NLP • RAG",
-    href: "#",
-    thumb: "/projects/chatbot.jpg",
+    title: "Data Privacy Management & Compliance Dashboard",
+    desc: "ML-Powered Full-stack system for detecting and encrypting PII in databases with RBAC and audit logging.",
+    tag: "Cryptography • Machine Learning • Full-Stack",
+    href: "/projects/data-privacy-management-dashboard",
+    thumb: "/projects/privacy_project.png",
   },
   {
-    title: "E-Commerce Platform",
-    desc: "Full-stack store with payments, admin, and search.",
-    tag: "Next.js • APIs",
-    href: "#",
-    thumb: "/projects/ecommerce.jpg",
+    title: "Deep Learning System for Spinal Fracture Detection (Kaggle Competition)",
+    desc: "CNN-based medical imaging system detecting spinal fractures in MRI scans with explainability.",
+    tag: "ML • Computer Vision • Medical",
+    href: "/projects/spinal-fracture-detection",
+    thumb: "/projects/spinal_project.png",
   },
   {
-    title: "Image Recognition Tool",
-    desc: "Classifier pipeline with model serving & monitoring.",
-    tag: "Vision • MLOps",
-    href: "#",
-    thumb: "/projects/vision.jpg",
+    title: "Filesystem MCP Server",
+    desc: "Secure MCP server for reading, listing, and searching files within sandboxed local directories.",
+    tag: "MCP • Security",
+    href: "/projects/filesystem-mcp-server",
+    thumb: "/projects/mcp_project.png",
   },
 ];
 
@@ -41,13 +42,11 @@ export default function Page() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           {/* Left: Name + title */}
           <div>
-            <p className="badge">Available for full-time • NYC/Remote</p>
-
             <h1 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-5xl">
-              Alex Johnson
+              Albert Tadros
             </h1>
             <p className="mt-3 text-xl font-semibold text-cyan-300">
-              Full Stack & AI Engineer
+              Full Stack & Aspiring AI Engineer
             </p>
 
             <p className="mt-6 max-w-xl text-slate-300">
@@ -65,11 +64,9 @@ export default function Page() {
             </div>
 
             <div className="mt-10 flex flex-wrap gap-2">
-              <span className="badge">Next.js</span>
-              <span className="badge">TypeScript</span>
-              <span className="badge">Node/Python</span>
-              <span className="badge">LLM Apps</span>
-              <span className="badge">AWS</span>
+              <span className="badge">Full Stack Web Development</span>
+              <span className="badge">AI Agents</span>
+              <span className="badge">Cloud & DevOps</span>
             </div>
           </div>
 
@@ -78,7 +75,7 @@ export default function Page() {
             <div className="card overflow-hidden">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/hero.jpg"
+                  src="/projects/at_logo_theme.png"
                   alt="Developer at laptop"
                   fill
                   className="object-cover opacity-90"
@@ -110,8 +107,8 @@ export default function Page() {
           <div className="card p-8">
             <h3 className="text-lg font-bold">About Me</h3>
             <p className="mt-4 text-slate-300">
-              I’m a full stack engineer with a focus on AI product engineering. I build
-              fast, reliable web apps and integrate LLM features like RAG, tool use, and
+              I’m a full stack engineer and aspiring AI engineer. I build
+              fast, reliable web apps and integrate AI technologies like RAG, MCP, and
               evaluation — with attention to safety, latency, and user experience.
             </p>
 
@@ -133,7 +130,7 @@ export default function Page() {
           <div className="card p-8">
             <h3 className="text-lg font-bold">My Skills</h3>
             <p className="mt-3 text-slate-300">
-              Strong full-stack fundamentals with modern AI workflows.
+              Full-stack fundamentals with modern AI workflows.
             </p>
 
             <div className="mt-6 grid gap-3">
@@ -154,12 +151,12 @@ export default function Page() {
             </div>
 
             {/* Optional: small tech row */}
-            <div className="mt-6 flex flex-wrap gap-2">
+            {/* <div className="mt-6 flex flex-wrap gap-2">
               <span className="badge">Postgres</span>
               <span className="badge">Redis</span>
               <span className="badge">OpenAI / OSS LLMs</span>
               <span className="badge">Docker</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -176,6 +173,30 @@ export default function Page() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Bachelor's Degree */}
+          <div className="card p-8 transition hover:border-cyan-300/25 hover:bg-white/10">
+            <div className="flex items-start justify-between">
+              <div>
+                <h3 className="text-lg font-bold">
+                  Master of Science
+                </h3>
+                <p className="text-cyan-300 font-semibold">
+                  Computer Engineering
+                </p>
+              </div>
+
+              <div className="text-3xl">📘</div>
+            </div>
+
+            <div className="mt-4 text-sm text-slate-300 space-y-2">
+              <p>
+                Advanced study in distributed systems, machine learning,
+                optimization, and large-scale application architecture.
+              </p>
+              <p className="text-slate-400">
+                Focus: AI systems • Scalable backend architecture • Research-driven engineering
+              </p>
+            </div>
+          </div>
           <div className="card p-8 transition hover:border-cyan-300/25 hover:bg-white/10">
             <div className="flex items-start justify-between">
               <div>
@@ -202,30 +223,7 @@ export default function Page() {
           </div>
 
           {/* Master's Degree */}
-          <div className="card p-8 transition hover:border-cyan-300/25 hover:bg-white/10">
-            <div className="flex items-start justify-between">
-              <div>
-                <h3 className="text-lg font-bold">
-                  Master of Science
-                </h3>
-                <p className="text-cyan-300 font-semibold">
-                  Computer Engineering
-                </p>
-              </div>
-
-              <div className="text-3xl">📘</div>
-            </div>
-
-            <div className="mt-4 text-sm text-slate-300 space-y-2">
-              <p>
-                Advanced study in distributed systems, machine learning,
-                optimization, and large-scale application architecture.
-              </p>
-              <p className="text-slate-400">
-                Focus: AI systems • Scalable backend architecture • Research-driven engineering
-              </p>
-            </div>
-          </div>
+          
         </div>
       </section>
 
@@ -240,7 +238,7 @@ export default function Page() {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
-            <a
+            <Link
               key={p.title}
               href={p.href}
               className="card overflow-hidden transition hover:border-cyan-300/25 hover:bg-white/10"
@@ -265,7 +263,7 @@ export default function Page() {
                   View Project <span aria-hidden>→</span>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
@@ -333,10 +331,10 @@ function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#home" className="flex items-center gap-3">
           <div className="grid h-10 w-10 place-items-center rounded-2xl bg-cyan-500/15 text-cyan-300">
-            AJ
+            AT
           </div>
           <div className="leading-tight">
-            <div className="text-sm font-bold">Alex Johnson</div>
+            <div className="text-sm font-bold">Albert Tadros</div>
             <div className="text-xs text-slate-400">Full Stack & AI Engineer</div>
           </div>
         </a>
@@ -348,9 +346,6 @@ function Header() {
           <a className="hover:text-cyan-300" href="#contact">Contact</a>
         </nav>
 
-        <a href="#contact" className="btn-primary hidden md:inline-flex">
-          Hire Me
-        </a>
       </div>
     </header>
   );
@@ -360,7 +355,7 @@ function Footer() {
   return (
     <footer className="border-t border-white/10 bg-slate-950/70">
       <div className="mx-auto max-w-6xl px-6 py-10 text-center text-sm text-slate-400">
-        <p>© {new Date().getFullYear()} Alex Johnson. All Rights Reserved.</p>
+        <p>© {new Date().getFullYear()} Albert Tadros. All Rights Reserved.</p>
       </div>
     </footer>
   );
