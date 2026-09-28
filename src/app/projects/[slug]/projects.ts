@@ -1,3 +1,6 @@
+// Keep this file beside the project detail route, matching its ./projects import.
+// Add codeUrl, demoUrl, contribution, results, and screenshots to each project
+// when available. Screenshot paths refer to files under public/.
 export type Project = {
   slug: string;
   title: string;
@@ -8,11 +11,25 @@ export type Project = {
   techStack: string[];
   category: string;
   image: string;
+  problem: string;
+  decisions: { title: string; detail: string }[];
+  // Add only verified details. Optional sections stay hidden until populated.
+  contribution?: string;
+  results?: { value: string; label: string; context: string }[];
+  codeUrl?: string;
+  demoUrl?: string;
+  screenshots?: { src: string; alt: string; caption: string }[];
 };
 
 export const projects: Project[] = [
   {
     slug: "data-privacy-management-dashboard",
+    problem: "Sensitive information in a database needs more than detection: it also needs controlled access and a record of how it is used.",
+    decisions: [
+      { title: "Detection and protection", detail: "Presidio identifies PII, while encryption protects the detected data." },
+      { title: "Controlled access", detail: "Role-based access controls govern decryption; audit logs record data access." },
+      { title: "An interface for privacy workflows", detail: "A React and TypeScript dashboard connects privacy policy management to a Flask backend." },
+    ],
     title: "Data Privacy Management & Compliance Dashboard",
     shortDescription:
       "Full-stack security platform for detecting, encrypting, and controlling access to sensitive PII data.",
@@ -40,6 +57,12 @@ export const projects: Project[] = [
   },
   {
     slug: "spinal-fracture-detection",
+    problem: "A fracture-detection model needs a consistent image-processing workflow and a way to inspect its predictions.",
+    decisions: [
+      { title: "Prepare the imaging data", detail: "DICOM normalization, resizing, and segmentation form the preprocessing workflow." },
+      { title: "Use transfer learning", detail: "The model uses an EfficientNetV2 CNN with GPU-accelerated training." },
+      { title: "Inspect and evaluate predictions", detail: "Grad-CAM visualizations accompany evaluation with F1 scores, validation curves, and confusion matrices." },
+    ],
     title: "Deep Learning System for Spinal Fracture Detection",
     shortDescription:
       "Computer vision system for automatically detecting and localizing spinal fractures in MRI scans.",
@@ -68,6 +91,12 @@ export const projects: Project[] = [
   },
   {
   slug: "filesystem-mcp-server",
+    problem: "Giving an AI client access to local files requires clear boundaries around which directories and operations are allowed.",
+    decisions: [
+      { title: "Validate access before operating", detail: "A validation layer normalizes paths and checks directory boundaries before filesystem operations." },
+      { title: "Handle escape paths", detail: "Traversal protection and symlink checks address routes that could lead outside approved directories." },
+      { title: "Expose a focused tool interface", detail: "FastMCP exposes file reading, directory listing, and search through an MCP-compatible interface." },
+    ],
   title: "Filesystem MCP Server",
   shortDescription:
     "Secure MCP server for reading, listing, and searching files from local directories through a sandboxed directory model.",
