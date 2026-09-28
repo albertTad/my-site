@@ -9,11 +9,14 @@ export async function generateStaticParams() {
   return projects.map(({ slug }) => ({ slug }));
 }
 
+export const dynamicParams = false;
+
 export default async function ProjectDetailsPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
   const nextProject = projects[(projects.findIndex((item) => item.slug === slug) + 1) % projects.length];
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   return (
     <main className="min-h-screen bg-grid">
@@ -36,7 +39,7 @@ export default async function ProjectDetailsPage({ params }: ProjectPageProps) {
           <div className="min-w-0">
             <div className="card overflow-hidden p-3 sm:p-6">
               <div className="relative aspect-[16/10]">
-                <Image src={project.image} alt={`${project.title} project preview`} fill className="object-contain" sizes="(min-width: 1024px) 66vw, 100vw" priority />
+                <Image src={`${basePath}${project.image}`} alt={`${project.title} project preview`} fill className="object-contain" sizes="(min-width: 1024px) 66vw, 100vw" priority />
               </div>
             </div>
             <section className="mt-12">
@@ -81,7 +84,7 @@ export default async function ProjectDetailsPage({ params }: ProjectPageProps) {
                   {project.screenshots.map((shot) => (
                     <figure key={shot.src}>
                       <div className="card relative aspect-[16/10] overflow-hidden">
-                        <Image src={shot.src} alt={shot.alt} fill className="object-contain p-3" sizes="(min-width: 1024px) 66vw, 100vw" />
+                        <Image src={`${basePath}${shot.src}`} alt={shot.alt} fill className="object-contain p-3" sizes="(min-width: 1024px) 66vw, 100vw" />
                       </div>
                       <figcaption className="mt-3 text-sm text-slate-400">{shot.caption}</figcaption>
                     </figure>

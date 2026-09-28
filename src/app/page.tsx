@@ -48,6 +48,8 @@ const projects = [
 ];
 
 export default function Page() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <main className="min-h-screen bg-grid">
       <Header />
@@ -84,7 +86,7 @@ export default function Page() {
             <div className="card overflow-hidden">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/projects/at_logo_2.png"
+                  src={`${basePath}/projects/at_logo_theme.png`}
                   alt="Albert Tadros personal brand artwork"
                   fill
                   className="object-cover"
@@ -115,7 +117,7 @@ export default function Page() {
             >
               <div className="relative aspect-[16/10] w-full border-b border-[var(--border)] bg-[#0b1120]">
                 <Image
-                  src={p.thumb}
+                  src={`${basePath}${p.thumb}`}
                   alt={`${p.title} project preview`}
                   fill
                   className="object-contain p-3"
